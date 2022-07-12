@@ -9,11 +9,8 @@
         <property name="show_sql">true</property>
         <property name="format_sql">false</property>
         <property name="use.sql_comments">true</property>
-        <mapping class="pl.migibud.hibernate.model.Address"/>
-        <mapping class="pl.migibud.hibernate.model.User"/>
-        <mapping class="pl.migibud.hibernate.model.Customer"/>
-        <mapping class="pl.migibud.hibernate.model.SalesRep"/>
-        <mapping class="pl.migibud.hibernate.model.Student"/>
-        <mapping class="pl.migibud.hibernate.model.StudentBook"/>
+        <mapping class="pl.migibud.hibernate2.model.Client"/>
+        <mapping class="pl.migibud.hibernate2.model.Orders"/>
+
     </session-factory>
 </hibernate-configuration>

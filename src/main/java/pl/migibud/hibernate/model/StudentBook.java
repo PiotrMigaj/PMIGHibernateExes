@@ -25,4 +25,9 @@ public class StudentBook {
 	public StudentBook(String number) {
 		this.number = number;
 	}
+
+	public void setStudent(Student student){
+		this.student = student;
+		this.student.setStudentBook(this);
+	}
 }

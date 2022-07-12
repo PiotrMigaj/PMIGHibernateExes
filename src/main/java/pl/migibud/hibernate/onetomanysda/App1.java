@@ -1,15 +1,15 @@
-package pl.migibud.hibernate.onetoonesda;
+package pl.migibud.hibernate.onetomanysda;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import pl.migibud.hibernate.HibernateUtils;
 import pl.migibud.hibernate.model.Address;
-import pl.migibud.hibernate.model.Student;
-import pl.migibud.hibernate.model.StudentBook;
+import pl.migibud.hibernate.model.Client;
+import pl.migibud.hibernate.model.Order;
 import pl.migibud.hibernate.model.User;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class App1 {
 	public static void main(String[] args) {
@@ -17,12 +17,18 @@ public class App1 {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 
-		Student student = new Student("Piotr", "Migaj", LocalDate.now());
-		StudentBook studentBook = new StudentBook("123");
-		studentBook.setStudent(student);
-		session.persist(student);
+		Client client = new Client("Piotr","Migaj");
+		session.persist(client);
+		Order order1 = new Order(150,"Kosa", LocalDateTime.now());
+		session.persist(order1);
+		Order order2 = new Order(250,"Kosa spalinowa", LocalDateTime.now());
+		session.persist(order2);
+
+		client.addOrder(order1);
+		client.addOrder(order2);
 
 		transaction.commit();
 		session.close();
+
 	}
 }
